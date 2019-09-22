@@ -53,7 +53,7 @@ private:
 	{
 		Hs = NUM_RING;
 		for (int n = 0; n < NUM_DISK - 1; ++n) {
-			if (vvi_Board[n].size() > 1) {  //¸¸¾à ¸ñÇ¥ Å¸¿ö°¡ ¾Æ´Ñ°÷¿¡ ¸µÀÌ 2°³ ÀÌ»ó ÀÖ´Ù¸é
+			if (vvi_Board[n].size() > 1) {  //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ç¥ Å¸ï¿½ï¿½ ï¿½Æ´Ñ°ï¿½ ï¿½ï¿½ï¿½ï¿½ 2ï¿½ï¿½ ï¿½Ì»ï¿½ ï¿½Ö´Ù¸ï¿½
 				for (int i = 0; i < vvi_Board[n].size() - 1; ++i) {
 					Hs += vvi_Board[n].size() - i - 1;
 				}
@@ -70,8 +70,8 @@ private:
 	void Move_Add_NewNode(int j, int i, std::vector<Hanoi_node>& v_board)
 	{
 		Hanoi_node temp{ *this };
-		temp.vvi_Board[j].emplace_back(vvi_Board[i][vvi_Board[i].size() - 1]); //´Ù¸¥ Å¸¿ö¿¡ ÇöÀç Å¸¿öÀÇ ¸ÇÀ§¿¡ °ÍÀ» »ðÀÔ
-		temp.vvi_Board[i].erase(temp.vvi_Board[i].begin() + vvi_Board[i].size() - 1); // ÇöÀç Å¸¿ö¿¡ ¸ÇÀ§¿¡ °ÍÀ» Áö¿ò
+		temp.vvi_Board[j].emplace_back(vvi_Board[i][vvi_Board[i].size() - 1]); //ï¿½Ù¸ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		temp.vvi_Board[i].erase(temp.vvi_Board[i].begin() + vvi_Board[i].size() - 1); // ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 		temp.Update_newNode(this);
 		v_board.emplace_back(temp);
 	}
@@ -88,15 +88,15 @@ public:
 	vector<Hanoi_node> possible_NextNode() {
 		vector<Hanoi_node> v_board;
 
-		// ´ÙÀ½¿¡ °¡´ÉÇÑ º¸µåÀÇ ¸ð¾ç Ã£±â
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ Ã£ï¿½ï¿½
 		for (int i = 0; i < NUM_DISK; ++i) {
 			for (int j = 0; j < NUM_DISK; ++j) {
-				if (i == j)continue;   //°°Àº Å¸¿ö¸é Áö³ª°¡±â
+				if (i == j)continue;   //ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 				if (vvi_Board[i].size() == 0)continue;
 				if (vvi_Board[j].size() == 0) {
 					Move_Add_NewNode(j, i, v_board);
 				}
-				else if (vvi_Board[i][vvi_Board[i].size() - 1] < vvi_Board[j][vvi_Board[j].size() - 1]) { //´Ù¸¥ Å¸¿öÀÇ ÃÖ»óÃþ °ªº¸´Ù ÀÛ´Ù¸é
+				else if (vvi_Board[i][vvi_Board[i].size() - 1] < vvi_Board[j][vvi_Board[j].size() - 1]) { //ï¿½Ù¸ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½Ö»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û´Ù¸ï¿½
 					Move_Add_NewNode(j, i, v_board);
 				}
 			}
@@ -195,7 +195,7 @@ struct Node {
 	void DeleteFrontNode()
 	{
 		if (next == nullptr) {
-			cout << "Áö¿ï°Ô ¾ø½À´Ï´Ù." << endl;
+			cout << "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½." << endl;
 			return;
 		}
 		size--;
@@ -209,7 +209,7 @@ struct Node {
 	void DeleteFindNode(Node* key)
 	{
 		if (next == nullptr) {
-			cout << "Áö¿ï°Ô ¾ø½À´Ï´Ù." << endl;
+			cout << "ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½." << endl;
 			return;
 		}
 		Node* prev = this;
@@ -240,7 +240,7 @@ void Print_Node(string name, Node* root)
 {
 	cout << name << endl;
 	for (int i = 0; i < root->size; ++i)
-		cout << "¦¡¦¡¦¡¦¡";
+		cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 	cout << endl;
 	for (int i = 0; i < NUM_RING; ++i) {
 		cout << "|";
@@ -276,7 +276,7 @@ void Print_Node(string name, Node* root)
 		cout << endl;
 	}
 	for (int i = 0; i < root->size; ++i)
-		cout << "¦¡¦¡¦¡¦¡";
+		cout << "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 	cout << endl;
 }
 bool Check_Overlap(Node* N_Open, Node* N_Close, Node* N_NextLevelNode, Hanoi_node& next, Node* parent)
@@ -324,7 +324,7 @@ bool Check_Overlap(Node* N_Open, Node* N_Close, Node* N_NextLevelNode, Hanoi_nod
 }
 void print_Answer(Hanoi_node node, Node* root)
 {
-	cout << "Á¤´äÀÔ´Ï´Ù." << endl;
+	cout << "ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½." << endl;
 
 	Node* Path = new Node;
 	Path->next = nullptr;
@@ -339,7 +339,7 @@ void print_Answer(Hanoi_node node, Node* root)
 	Node* start = new Node;
 	start->v = Hanoi_node();
 	Path->InsertFront(start);
-	Print_Node("°æ·Î", Path);
+	Print_Node("ï¿½ï¿½ï¿½", Path);
 }
 
 
