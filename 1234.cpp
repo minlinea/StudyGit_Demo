@@ -2,10 +2,10 @@
 #include<vector>
 #include <algorithm>
 using namespace std;
-#include<list>
+
 #define CIRCLE 3
 #include<string>
-
+#include<list>
 #define NUM_DISK 3
 #define NUM_RING 3
 
